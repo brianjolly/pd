@@ -1,0 +1,64 @@
+#N canvas 133 38 1149 999 12;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-pitches 16 float 3;
+#A 0 71 77 84 71 77 84 71 77 84 71 77 84 71 77 84 71;
+#X coords 0 127 16 0 200 127 1 0 0;
+#X restore 421 69 graph;
+#X msg 329 309 60 62 64 65 67 69 71 72 74 76 77 79 81 83 84 86;
+#X obj 328 337 array set \$0-pitches;
+#X obj 45 224 array get \$0-pitches;
+#X floatatom 52 300 5 0 0 0 - - - 0;
+#X obj 45 122 metro 0.25 120 permin;
+#X obj 45 86 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000
+0 1;
+#X obj 45 144 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X msg 63 86 tempo \$1 permin;
+#X floatatom 63 65 5 0 300 1 bpm - - 0;
+#X obj 45 162 f;
+#X obj 84 163 + 1;
+#X obj 45 184 % 16;
+#X obj 45 206 hradio 15 1 0 16 empty empty empty 0 -8 0 10 #c6feff
+#000000 #000000 0;
+#X obj 42 373 synth;
+#X obj 90 384 hsl 128 15 0.01 1 1 0 empty empty vol -2 -8 0 10 #c6feff
+#000000 #000000 0 1;
+#X floatatom 60 342 5 0 300 1 slew - - 0;
+#X obj 52 278 spigot;
+#X obj 52 256 trigger f f;
+#X obj 108 278 > 0;
+#X msg 352 425 60 64 67 60 64 67 60 64 67 60 64 67 60 64 67 0;
+#X msg 355 403 71 74 77 71 74 77 71 74 77 71 74 77 71 74 77 0;
+#X obj 168 338 clave;
+#X obj 166 310 hsl 128 15 0.01 1 1 0 empty empty vol -2 -8 0 10 #c6feff
+#000000 #000000 0 1;
+#X msg 329 269 71 77 84 71 77 84 71 77 84 71 77 84 71 77 84 71;
+#X obj 266 70 print;
+#X floatatom 281 17 5 0 0 0 - - - 0;
+#X msg 266 47 \$1 (\$1+7);
+#X obj 352 71 expr;
+#X connect 1 0 2 0;
+#X connect 3 0 18 0;
+#X connect 4 0 14 0;
+#X connect 5 0 7 0;
+#X connect 6 0 5 0;
+#X connect 7 0 10 0;
+#X connect 8 0 5 0;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 10 0 12 0;
+#X connect 11 0 10 1;
+#X connect 12 0 13 0;
+#X connect 13 0 3 0;
+#X connect 15 0 14 2;
+#X connect 16 0 14 1;
+#X connect 17 0 4 0;
+#X connect 18 0 17 0;
+#X connect 18 1 19 0;
+#X connect 19 0 17 1;
+#X connect 20 0 2 0;
+#X connect 21 0 2 0;
+#X connect 23 0 22 1;
+#X connect 24 0 2 0;
+#X connect 26 0 27 0;
+#X connect 27 0 25 0;

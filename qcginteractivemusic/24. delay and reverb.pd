@@ -1,0 +1,106 @@
+#N canvas 202 263 888 659 12;
+#X obj 90 9 adc~ 1;
+#X obj 101 44 *~;
+#X obj 176 48 hsl 128 15 0 10 0 0 empty empty Gain -2 -8 0 10 #c6ffc7
+#000000 #000000 0 1;
+#X obj 111 150 *~;
+#X obj 153 148 hsl 128 15 0 1 0 0 empty empty Output -2 -8 0 10 #c6ffc7
+#000000 #000000 0 1;
+#X obj 103 196 dac~;
+#X obj 26 128 vu 15 120 empty empty -1 -8 0 10 #404040 #000000 1 0
+;
+#X obj 23 73 env~;
+#X obj 23 97 - 90;
+#X obj 153 103 delwrite~ audio-buffer 5000;
+#X obj 70 368 delread~ audio-buffer 0;
+#X floatatom 70 339 5 0 0 0 - - - 0;
+#X obj 73 314 hsl 128 15 0 5000 0 0 empty empty Delay\\\ time -2 -8
+0 10 #c6ffc7 #000000 #000000 0 1;
+#X obj 69 403 *~;
+#X obj 106 405 hsl 128 15 0 1 0 0 empty empty Delay\\\ volume -2 -8
+0 10 #c6ffc7 #000000 #000000 0 1;
+#X obj 57 439 dac~;
+#X obj 139 441 *~;
+#X obj 190 440 hsl 128 15 0 1 0 0 empty empty Feedback\\\ Amount -2
+-8 0 10 #c6ffc7 #000000 #000000 0 1;
+#X obj 166 79 receive~ feedback-sig;
+#X obj 129 467 send~ feedback-sig;
+#X obj 495 36 adc~ 1;
+#X obj 506 71 *~;
+#X obj 554 75 hsl 128 15 0 10 0 0 empty empty Gain -2 -8 0 10 #c6ffc7
+#000000 #000000 0 1;
+#X obj 509 203 *~;
+#X obj 555 204 hsl 128 15 0 1 0 0 empty empty Output -2 -8 0 10 #c6ffc7
+#000000 #000000 0 1;
+#X obj 505 252 dac~;
+#X obj 502 132 rev1~;
+#X floatatom 524 106 5 0 0 1 time - - 0;
+#X obj 475 203 *~;
+#X obj 418 170 hsl 128 15 0 1 0 0 empty empty Dry\\\ signal -2 -8 0
+10 #c6ffc7 #000000 #000000 0 1;
+#X obj 479 322 adc~ 1;
+#X obj 479 361 *~;
+#X obj 523 364 hsl 128 15 0.1 10 1 0 empty empty Gain -2 -8 0 10 #c6ffc7
+#000000 #000000 0 1;
+#X obj 490 502 *~;
+#X obj 569 469 hsl 128 15 0.01 1 1 0 empty empty Output -2 -8 0 10
+#c6ffc7 #000000 #000000 0 1;
+#X obj 478 542 dac~;
+#X obj 441 503 *~;
+#X obj 388 468 hsl 128 15 0.01 1 1 0 empty empty Dry\ signal -2 -8
+0 10 #c6ffc7 #000000 #000000 0 1;
+#X obj 522 502 *~;
+#X obj 479 432 rev2~ 100 90 3000 20;
+#X floatatom 547 388 5 0 0 1 livelyness - - 0;
+#X floatatom 600 407 5 0 0 1 damping - - 0;
+#X obj 720 369 rev3~ 100 90 3000 20;
+#X text 717 346 stereo;
+#X floatatom 558 343 5 0 0 0 - - - 0;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 1 0 7 0;
+#X connect 1 0 9 0;
+#X connect 2 0 1 1;
+#X connect 3 0 5 0;
+#X connect 3 0 5 1;
+#X connect 4 0 3 1;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 10 0 13 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 13 0 15 0;
+#X connect 13 0 15 1;
+#X connect 13 0 16 0;
+#X connect 14 0 13 1;
+#X connect 16 0 19 0;
+#X connect 17 0 16 1;
+#X connect 18 0 9 0;
+#X connect 20 0 21 0;
+#X connect 21 0 26 0;
+#X connect 21 0 28 0;
+#X connect 22 0 21 1;
+#X connect 23 0 25 0;
+#X connect 23 0 25 1;
+#X connect 24 0 23 1;
+#X connect 26 0 23 0;
+#X connect 27 0 26 1;
+#X connect 28 0 25 0;
+#X connect 28 0 25 1;
+#X connect 29 0 28 1;
+#X connect 30 0 31 0;
+#X connect 31 0 36 0;
+#X connect 31 0 39 0;
+#X connect 32 0 31 1;
+#X connect 32 0 44 0;
+#X connect 33 0 35 0;
+#X connect 33 0 35 1;
+#X connect 34 0 33 1;
+#X connect 34 0 38 1;
+#X connect 36 0 35 0;
+#X connect 36 0 35 1;
+#X connect 37 0 36 1;
+#X connect 39 0 33 0;
+#X connect 39 1 38 0;
+#X connect 40 0 39 2;
+#X connect 41 0 39 4;
